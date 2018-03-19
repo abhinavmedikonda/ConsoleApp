@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace ConsoleApp
 {
@@ -27,8 +28,35 @@ namespace ConsoleApp
             //Console.Write(string.Join(",", heap.HeapSort(new int[] { 2, 54, -84, 9, -38, -8, 59, -8 })));
             //Console.Read();
 
-            BST bst = new BST();
-            Console.Write(bst.TotalPossibleBSTs(6));
+            //BST bst = new BST();
+            //Console.Write(bst.TotalPossibleBSTs(6));
+            //Console.Read();
+
+            BinaryTree binaryTree = new BinaryTree();
+            BinaryTree[] binaryTrees = new BinaryTree[25];
+            for (int i = 0; i < binaryTrees.Length; i++)
+            {
+                binaryTrees[i] = new BinaryTree();
+                binaryTrees[i].Current = i + 1;
+            }
+            if (binaryTrees.Length > 0)
+            {
+                binaryTrees[0].Left = binaryTrees[1];
+            }
+            if (binaryTrees.Length > 1)
+            {
+                binaryTrees[0].Right = binaryTrees[2];
+            }
+            for (int i = 1; i < binaryTrees.Length / 2; i++)
+            {
+                binaryTrees[i].Left = binaryTrees[i * 2 + 1];
+                if (i * 2 + 2 < binaryTrees.Length)
+                {
+                    binaryTrees[i].Right = binaryTrees[i * 2 + 2];
+                }
+            }
+            binaryTrees[0] = new BinaryTree { Current = 1, Left = binaryTrees[1], Right = binaryTrees[2] };
+            Console.Write(binaryTree.LowestCommenAncestor(binaryTrees[0], binaryTrees[21], binaryTrees[9])?.Current);
             Console.Read();
         }
     }

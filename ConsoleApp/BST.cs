@@ -6,9 +6,9 @@ namespace ConsoleApp
 {
     class BST
     {
+        public int Current;
         public BST Left;
         public BST Right;
-        public int Current;
 
         public int TotalPossibleBSTs(int n)
         {
