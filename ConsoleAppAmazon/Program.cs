@@ -12,24 +12,24 @@ namespace ConsoleAppAmazon
         {
             Program p = new Program();
 
-            //var result =  p.retrieve("jack      ,,,&**   jill's askdf Jack. and and.", new List<string>() { });
-            //foreach (var item in result)
-            //{
-            //    Console.WriteLine(item);
-            //}
-            //Console.Read();
-
-            string[] inp = new string[4];
-            inp[1] = "a1 alps cow bar";
-            inp[0] = "mi2 jog mid pet";
-            inp[2] = "wz3 34 45";
-            inp[3] = "x4 2 56 922";
-            var res = p.reorderLines(4, inp);
-            foreach (var item in res)
+            var result = p.retrieve("jack      ,,,&**   jill's askdf Jack. and and.", new List<string>() { });
+            foreach (var item in result)
             {
                 Console.WriteLine(item);
             }
             Console.Read();
+
+            //string[] inp = new string[4];
+            //inp[1] = "a1 alps cow bar";
+            //inp[0] = "mi2 jog mid pet";
+            //inp[2] = "wz3 34 45";
+            //inp[3] = "x4 2 56 922";
+            //var res = p.reorderLines(4, inp);
+            //foreach (var item in res)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.Read();
         }
 
         private List<string> retrieve(string literatureText, List<string> wordsToExclude)
@@ -70,7 +70,6 @@ namespace ConsoleAppAmazon
                             if (wordCount.ContainsKey(currentWord.ToString()))
                             {
                                 wordCount.TryGetValue(currentWord.ToString(), out count);
-
                             }
 
                             if (count + 1 > maxCount)
@@ -94,7 +93,6 @@ namespace ConsoleAppAmazon
                     if (wordCount.ContainsKey(currentWord.ToString()))
                     {
                         wordCount.TryGetValue(currentWord.ToString(), out count);
-
                     }
 
                     if (count + 1 > maxCount)

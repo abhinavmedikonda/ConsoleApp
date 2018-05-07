@@ -49,5 +49,67 @@ namespace ConsoleApp
                 yield return index;
             }
         }
+
+        public int KMPStringMatch(string theString, string theSubString)
+        {
+            int[] kmpArray = KMPArray(theSubString);
+            int j = 0;
+            char c;
+
+            for (int i = 0; i < theString.Length; i++)
+            {
+                c = theString[i];
+
+                if (c == theSubString[j])
+                {
+                    if (j == theSubString.Length - 1)
+                    {
+                        return i + 1 - theSubString.Length;
+                    }
+                    j++;
+                }
+                else
+                {
+                    if (j == 0)
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        j = kmpArray[j - 1];
+                        i--;
+                    }
+                }
+            }
+
+            return -1;
+        }
+
+        private int[] KMPArray(string theSubString)
+        {
+            if (string.IsNullOrEmpty(theSubString))
+            {
+                return null;
+            }
+
+            int[] kmpArray = new int[theSubString.Length];
+            kmpArray[0] = 0;
+
+            for (int i = 1, j = 0; i < theSubString.Length; i++)
+            {
+                if (theSubString[i] == theSubString[j])
+                {
+                    kmpArray[i] = kmpArray[i - 1] + 1;
+                    j++;
+                }
+                else
+                {
+                    kmpArray[i] = 0;
+                    j = 0;
+                }
+            }
+
+            return kmpArray;
+        }
     }
 }
