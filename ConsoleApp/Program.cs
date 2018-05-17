@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace ConsoleApp
@@ -59,8 +60,20 @@ namespace ConsoleApp
             //Console.Write(binaryTree.LowestCommenAncestor(binaryTrees[0], binaryTrees[21], binaryTrees[9])?.Current);
             //Console.Read();
 
-            Strings strings = new Strings();
-            Console.Write(strings.KMPStringMatch("abcabcabdabcdef", "abcabdabcd"));
+            //Strings strings = new Strings();
+            //Console.Write(strings.KMPStringMatch("abcabcabdabcdef", "abcabdabcd"));
+            //Console.Read();
+
+            DP dP = new DP();
+            List<DP.Item> items = new List<DP.Item> { new DP.Item { Name = "item1", Weight = 4, Value = 8 },
+                                                        new DP.Item { Name = "item2", Weight = 6, Value = 5 },
+                                                        new DP.Item { Name = "item3", Weight = 3, Value = 7 },
+                                                        new DP.Item { Name = "item4", Weight = 9, Value = 4 },
+                                                        new DP.Item { Name = "item5", Weight = 2, Value = 6 },
+                                                        new DP.Item { Name = "item6", Weight = 7, Value = 2 },
+                                                        new DP.Item { Name = "item7", Weight = 3, Value = 9 },
+                                                        new DP.Item { Name = "item8", Weight = 5, Value = 3 }};
+            Console.Write(dP.Knapsack(items, 25));
             Console.Read();
         }
     }

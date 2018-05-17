@@ -6,8 +6,8 @@ namespace ConsoleApp
 {
     class Strings
     {
-        static Dictionary<string, string> replaceStringList = new Dictionary<string, string> { { "ab", "cd" }, { "cd", "y" } };
-        static string shortestString;
+        private static Dictionary<string, string> replaceStringList = new Dictionary<string, string> { { "ab", "cd" }, { "cd", "y" } };
+        private static string shortestString;
 
         public string ReplaceTillShortest(string theString)
         {
